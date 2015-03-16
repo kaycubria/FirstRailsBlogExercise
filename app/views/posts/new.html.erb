@@ -1,0 +1,22 @@
+<h1>Create a New Post</h1>
+
+<%= form_for :post, url: "/users/#{User.find_by_id(session[:user_id]).id}/posts" do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :subhead %><br>
+    <%= f.text_field :subhead %>
+  </p>
+
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

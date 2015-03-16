@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Easy Rails Blog</h1>
+        <% if @user = User.find_by_id(session[:user_id]) %>
+      <nav>
+        <a href="/">SHOW ALL POSTS</a>
+        <a href=<%="/users/#{@user.id}"%>>MY HOMEPAGE</a>
+        <a href=<%="/users/#{@user.id}/posts/new"%>>CREATE A NEW POST</a>
+        <a href='/logout'>LOGOUT</a>
+      </nav>
+      <%end%>
+    </header>
+    </div>
+
+<%= yield %>
+  </div>
+</body>
+</html>
